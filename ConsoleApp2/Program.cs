@@ -1,49 +1,74 @@
-﻿class person
+﻿class Person
 {
     public string name
     { get; set; }
     public string surname
     { get; set; }
-    public DateTime daterod
-    { get; set; }
-    public person (string name, string surname, DateTime daterod) 
+    public DateTime dateroj
+    {
+        get { return dateroj; }
+        set { dateroj = value; }
+    }
+    public Person(string name, string surname, DateTime dateroj)
     {
         this.name = name;
         this.surname = surname;
-        this.daterod = daterod;
+        this.dateroj = dateroj;
     }
-enum Education
-{
-    Specialist,
-    Вachelor,
-    SecondEducation
+    private Person()
+    {
+        name = "Неуказон";
+        surname = "Неуказон";
+        dateroj = new DateTime(0, 0, 0);
+    }
+    public string ToFullString()
+    {
+        return string.Format(name, surname, dateroj);
+    }
 }
-class exam
+enum Education{Specialist,Вachelor,SecondEducation}
+class Exam
 {
-        public string predmet;
-        public int ocenka;
-        public DateTime dateexam;
-    public exam(string predmet, int ocenka, DateTime dateexam)
+    public string predmet;
+    public int ocenka;
+    public DateTime dateexam;
+    public Exam(string predmet, int ocenka, DateTime dateexam)
     {
         this.predmet = predmet;
         this.ocenka = ocenka;
         this.dateexam = dateexam;
     }
-    private exam()
+    private Exam()
     {
-        predmet = "defolt_predmet";
-        ocenka = 5;
-        dateexam = new DateTime(26, 02, 22);
+        predmet = "неуказон";
+        ocenka = 3;
+        dateexam = new DateTime(05, 03, 22);
     }
-        public string ToFullstring()
-        {
-            return string.Format(predmet, ocenka, dateexam);
-        }
+    public string ToFullstring()
+    {
+        return string.Format(predmet, ocenka, dateexam);
+    }
 }
-
 class student
 {
-        private person person;
-        private Education education;
-        private int nomergrypp;
+    private Person person;
+    private Education education;
+    private int nomgrupp;
+    private Exam[] exam;
+
+    private student(Person person, Education education, int nomgrupp, Exam[] exam)
+    {
+        this.person = person;
+        this.education = education;
+        this.nomgrupp = nomgrupp;
+        this.exam = exam;
+    }
+    private student()
+    {
+        person = new Person();
+        education = new Education();
+        nomgrupp = new int();
+        exam = new Exam[1];
+    }
+    
 }
