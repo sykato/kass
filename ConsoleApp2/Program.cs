@@ -1,4 +1,4 @@
-﻿class Person
+class Person
 {
     private string name;
     private string secondname;
@@ -41,7 +41,7 @@
         }
     }
 
-    int inststdBDate// Свойство типа int для получения информации и изменения года рождения в закрытом поле типа DateTime
+    int inststdBDate
     {
         get
         {
@@ -133,7 +133,6 @@
         }
         public double AvgRate
         {
-            //get { return exams.Count > 0 ? exams.Average(e=>e.Rate) : 0; }
             get
             {
                 double sum = 0;
